@@ -1,0 +1,36 @@
+***  N.Anh quá khứ -> 26/02 ***
+    - khởi tạo project
+    - tạo full entity + repository
+    - gắn front end vào web
+    - lùi phiên bản spring boot + dependency về 2.7.2 để dễ config security (!)
+
+*** N.Anh 27/02 ***
+Setup + fix spring basic security: 
+    - Add folder security (!)
+    - Tạo spring login page default để test phân quyền
+
+*** N.Anh 28/02 ***
+    - Tạo tính năng phân quyền, authentication + authorization mã hóa password theo BCrypPasswordEncoder, login dựa trên security config, UserDetailsService (!)
+    - Config custom user cho spring security
+    - Fix lỗi folder static bị sai đường dẫn dẫn đến ko nạp được style cho web (!)
+    - Fix lỗi ràng buộc entity, exception name bằng spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+(!)
+    - thêm column IsBlocked cho entity Client (!)
+    - set session timeout = 30p
+
+*** N.Anh 29/02 ***
+    - tạo admin controller (!)
+    - thêm trang QUẢN LÝ CLIENT: view, block, search by phone num
+    - ấn vào từng client id để xem thêm chi tiết về nó
+    - chỉnh sửa giao diện trang index, /admin/index, /admin/**... phù hợp với project
+
+*** N.Anh 01/03 ***
+    - refactor database, lược bỏ table service_item, service_type, điều chỉnh các field tránh redundancy (!!!)
+    - điều chỉnh tất cả entity class phù hợp database
+    - Fix lỗi repository không nhận @Query
+
+*** N.Anh 02+03 ***
+    - add tính năng validate admin block client bằng điều kiện chưa thanh toán contracts >= 3 tháng
+    - add tính năng prompt kết quả của các action block/unblock/search,...
+    - add navigation ấn vào id của đối tượng để chuyển tiếp qua trang search đối tượng đó
+    - refactor code, thay redirect params bằng flashAttributes (!)

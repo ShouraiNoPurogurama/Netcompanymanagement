@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <title>Preview Contract</title>
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="One page parallax responsive HTML Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="author" content="Themefisher">
+    <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+
+    <!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo-business-network.png" />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CSS
+  ================================================== -->
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <!-- Lightbox.min css -->
+    <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body id="body">
+
+    <!--
+  Start Preloader
+  ==================================== -->
+    <div id="preloader">
+        <div class='preloader'>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!--
+  End Preloader
+  ==================================== -->
+
+    <!--
+Fixed Navigation
+==================================== -->
+    <header class="navigation fixed-top">
+        <div class="container">
+            <!-- main nav -->
+            <nav class="navbar navbar-expand-lg navbar-light px-0" style="height: 80px; top: 25px;">
+                <!-- logo -->
+                <a class="navbar-brand logo" th:href="@{index}">
+                    <!-- <img loading="lazy" class="logo-default" src="images/logo.png" alt="logo" /> -->
+                    <img loading="lazy" class="logo-white" src="images/logo-business-network.png" alt="logo"
+                        style="height: 60px; width: 75px; margin-top: 20px;" />
+                    <p style="font-weight: bold;" class="dropdown-item" aria-labelledby="dropdown0501">SE1863</p>
+                </a>
+                <!-- /logo -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navigation">
+					<ul class="navbar-nav ml-auto text-center">
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Users <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" th:href="@{manage-client}">Clients</a></li>
+								<li><a class="dropdown-item" th:href="@{manage-technician}">Technician</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown02" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								SERVICES <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
+								<li>
+									<a class="dropdown-item" th:href="@{view-service}">VIEW</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{create-service}">CREATE</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{view-service}">UPDATE</a>
+								</li>
+                                <li>
+									<a class="dropdown-item" th:href="@{disable-service}">DISABLE</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown02" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								CONTRACTS <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
+								<li>
+									<a class="dropdown-item" th:href="@{view-contract}">VIEW</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{create-contract}">CREATE</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{view-contract}">UPDATE</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" th:href="@{manage-payment}">Payments</a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" th:href=@{view-request}>Requests</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown02" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${session.user}">
+								 <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
+								<li><a class="dropdown-item" th:href="@{setting}">Setting</a></li>
+								<li><a class="dropdown-item" href="/logout">Log-out</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+            </nav>
+            <!-- /main nav -->
+        </div>
+        <style>
+            body {
+                margin: 0 !important;
+                background: #eee;
+                margin-top: 20px;
+            }
+
+            .text-danger strong {
+                color: #9f181c;
+            }
+
+            #vnd {
+                content: "\20AB";
+            }
+
+            .receipt-main {
+                background: #ffffff none repeat scroll 0 0;
+                border-bottom: 12px solid #333333;
+                border-top: 12px solid #9f181c;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                padding: 40px 30px !important;
+                position: relative;
+                box-shadow: 0 1px 21px #acacac;
+                color: #333333;
+                font-family: open sans;
+            }
+
+            .receipt-main p {
+                color: #333333;
+                font-family: open sans;
+                line-height: 1.42857;
+            }
+
+            .receipt-footer h1 {
+                font-size: 15px;
+                font-weight: 400 !important;
+                margin: 0 !important;
+            }
+
+            .receipt-main::after {
+                background: #414143 none repeat scroll 0 0;
+                content: "";
+                height: 5px;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: -13px;
+            }
+
+            .receipt-main thead {
+                background: #414143 none repeat scroll 0 0;
+            }
+
+            .receipt-main thead th {
+                color: #fff;
+            }
+
+            .receipt-right h5 {
+                font-size: 16px;
+                font-weight: bold;
+                margin: 0 0 7px 0;
+            }
+
+            .receipt-right p {
+                font-size: 12px;
+                margin: 0px;
+            }
+
+            .receipt-right p i {
+                text-align: center;
+                width: 18px;
+            }
+
+            .receipt-main td {
+                padding: 9px 20px !important;
+            }
+
+            .receipt-main th {
+                padding: 13px 20px !important;
+            }
+
+            .receipt-main td {
+                font-size: 13px;
+                font-weight: initial !important;
+            }
+
+            .receipt-main td p:last-child {
+                margin: 0;
+                padding: 0;
+            }
+
+            .receipt-main td h2 {
+                font-size: 20px;
+                font-weight: 900;
+                margin: 0;
+                text-transform: uppercase;
+            }
+
+            .receipt-header-mid .receipt-left h1 {
+                font-weight: 100;
+                margin: 34px 0 0;
+                text-align: right;
+                text-transform: uppercase;
+            }
+
+            .receipt-header-mid {
+                margin: 24px 0;
+                overflow: hidden;
+            }
+
+            .receipt-left h2 {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                margin-top: 20px;
+                transform: rotate(-4deg);
+            }
+
+            #container {
+                background-color: #dcdcdc;
+            }
+        </style>
+    </header>
+    <!--
+End Fixed Navigation
+==================================== -->
+    <section class="single-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Preview Contract</h2>
+                    <ol class="breadcrumb header-bradcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a th:href="@{index}" class="text-white">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a th:href="@{create-contract}">Create
+                                Contract</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SERVICE TABLE -->
+
+    <section class="intro text-center">
+        <div class="row  col-md-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-8" th:object="${reviewContract}">
+                <div class="receipt-main col-xs-10 col-sm-10 col-md-12 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+                    <div class="col-md-12">
+                        <div class="receipt-header row col-md-12">
+                            <div class="col-xs-6 col-sm-6 col-md-6 text-left">
+                                <div class="receipt-left" style="margin-left: 20px;">
+                                    <img class="img-responsive" alt="iamgurdeeposahan"
+                                        src="images/technician-avt/wibu4.jpg" style="width: 85px; border-radius: 43px;">
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                                <div class="receipt-right">
+                                    <h5>Network Company</h5>
+                                    <p>+84 0909887766 <i class="fa fa-phone"></i></p>
+                                    <p>netcompany1863@gmail.com <i class="fa fa-envelope-o"></i></p>
+                                    <p>FPTU HCM - VN <i class="fa fa-location-arrow"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CUSTOMER DISPLAY -->
+                    <div class="row col-md-12">
+                        <div class="receipt-header receipt-header-mid row col-md-12">
+                            <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                                <div class="receipt-right">
+                                    <h4 th:text="*{client.firstName + ' ' + client.lastName }"></h4>
+                                    <b>Mobile: </b><span th:text="*{client.phoneNumber}"></span> <br>
+                                    <b>Email: </b><span th:text="*{client.email}"></span> <br>
+                                    <b>Address: </b>
+                                    <div th:each="address : *{client.userAddressAddresses.value}">
+                                        <span th:text="${address.addressLine}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <div class="receipt-left">
+                                    <h2 th:text="*{'#' + contractId+' PREVIEW'}"></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr style="font-size: 19px;">
+                                    <th>Service</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="serviceAndOption : ${serviceIdAndOption}">
+                                    <td class="col-md-9" th:text="${serviceAndOption.value.service.serviceName + ' (' + serviceAndOption.value.duration + ' months)'}" style="font-size: 17px;">
+                                    </td>
+                                    <td class="col-md-3" style="font-size: 17px;">
+                                        <span
+                                            th:text="${#numbers.formatDecimal(serviceAndOption.value.price, 0, 'POINT', 0, 'COMMA')}"></span>
+                                        <span id="vnd">&#8363;</span>
+                                    </td>
+                                </tr>
+
+                                <tr >
+                                    <td class="text-right">
+                                        <p class="custom-font" >
+                                            <strong>Total Amount: </strong>
+                                        </p>
+                                        <p class="custom-font">
+                                            <strong>Tax: </strong>
+                                        </p>
+                                        <p class="custom-font">
+                                            <strong>Payable Amount: </strong>
+                                        </p>
+                                    </td>
+                                    <td >
+                                        <p class="custom-font">
+                                            <th:block
+                                                th:with="totalSum=${#aggregates.sum(serviceIdAndOption.![value.price])}">
+                                                <strong
+                                                    th:text="${#numbers.formatDecimal(totalSum, 0, 'POINT', 0, 'COMMA')}"></strong>
+                                                <span id="vnd">&#8363;</span>
+                                            </th:block>
+                                        </p>
+                                        <p class="custom-font">
+                                            <th:block
+                                                th:with="totalSum=${#aggregates.sum(serviceIdAndOption.![value.price])/10}">
+                                                <strong
+                                                    th:text="${'+ ' + #numbers.formatDecimal(totalSum, 0, 'POINT', 0, 'COMMA')}"></strong>
+                                                <span id="vnd">&#8363;</span>
+                                            </th:block>
+                                        </p>
+                                        <p class="custom-font">
+                                            <th:block
+                                                th:with="totalSum=${#aggregates.sum(serviceIdAndOption.![value.price])*1.1}">
+                                                <strong
+                                                    th:text="${#numbers.formatDecimal(totalSum, 0, 'POINT', 0, 'COMMA')}"></strong>
+                                                <span id="vnd">&#8363;</span>
+                                            </th:block>
+                                        </p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td class="text-right">
+                                        <h2><strong>Total: </strong></h2>
+                                    </td>
+                                    <td class="text-center">
+                                        <h2>
+                                            <th:block
+                                                th:with="totalSum=${#aggregates.sum(serviceIdAndOption.![value.price])*1.1}">
+                                                <strong class="text-danger"
+                                                    th:text="${#numbers.formatDecimal(totalSum, 0, 'POINT', 0, 'COMMA')}"></strong>
+                                                <span id="vnd" class="text-danger">&#8363;</span>
+                                            </th:block>
+                                        </h2>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <div class="receipt-header receipt-header-mid receipt-footer row col-md-12">
+                            <div class="col-xs-12 col-sm-12 col-md-8 text-left">
+                                <div class="receipt-right">
+                                    <div>
+                                        <strong>Start Date: </strong> <span
+                                            th:text="${#calendars.format(reviewContract.contractStartDate, 'dd MMM yyyy')}"></span>
+                                        <br>
+
+                                        <strong>End Date: </strong> <span
+                                            th:text="${#calendars.format(reviewContract.contractEndDate, 'dd MMM yyyy')} "></span>
+                                    </div>
+                                    <hr>
+                                    <h5 style="color: rgb(99, 99, 99);">Thanks for registrating!</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="padding-left: 13%; padding-top: 8%;">
+                                <form th:action="@{/admin/create-contract}" method="post">
+                                    <div th:object="${reviewContract}" style="display: none;">
+                                        <input type="hidden" name="contractId" th:value="*{contractId}">
+                                        <input type="date" name="contractStartDate" th:value="${#dates.format(reviewContract.contractStartDate, 'yyyy-MM-dd')}" style="display: none;">
+                                        <input type="date" name="contractEndDate" th:value="${#dates.format(reviewContract.contractEndDate, 'yyyy-MM-dd')}" style="display: none;">                                        
+                                        <input type="hidden" name="clientId" th:value="*{client.clientId}">
+                                        <div th:each="serviceAndOption : ${serviceIdAndOption}">
+                                            <input type="hidden" th:name="${serviceAndOption.key}" th:value="${serviceAndOption.value.optionId}">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-danger btn-block custom-font" type="submit" style="width: 150px; font-weight: bold;">Submit contract</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </section>
+
+    <!-- END CLIENT TABLE  -->
+
+    <footer id="footer" class="bg-one">
+        <div class="top-footer">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                        <h3>about</h3>
+                        <p>Integer posuere erat a ante venenati dapibus posuere velit aliquet. Fusce dapibus, tellus
+                            cursus commodo,
+                            tortor mauris sed posuere.</p>
+                    </div>
+                    <!-- End of .col-sm-3 -->
+
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <ul>
+                            <li>
+                                <h3>Our Services</h3>
+                            </li>
+                            <li><a th:href="@{service}">Ui/Ux Design</a></li>
+                            <li><a th:href="@{service}">Graphic Design</a></li>
+                            <li><a th:href="@{service}">Web Design</a></li>
+                            <li><a th:href="@{service}">Web Development</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of .col-sm-3 -->
+
+                    <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                        <ul>
+                            <li>
+                                <h3>Quick Links</h3>
+                            </li>
+                            <li><a th:href="@{about}">About</a></li>
+                            <li><a th:href="@{service}">Services</a></li>
+                            <li><a th:href="@{blog}">Blogs</a></li>
+                            <li><a th:href="@{error}">404</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of .col-sm-3 -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <ul>
+                            <li>
+                                <h3>Connect with us Socially</h3>
+                            </li>
+                            <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
+                            <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA">Youtube</a></li>
+                            <li><a href="https://www.github.com/themefisher/">Github</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of .col-sm-3 -->
+
+                </div>
+            </div> <!-- end container -->
+        </div>
+        <div class="footer-bottom">
+            <h5>&copy; Copyright 2020. All rights reserved.</h5>
+            <h6>Design and Developed by <a href="https://themefisher.com/">Themefisher</a></h6>
+        </div>
+    </footer> <!-- end footer -->
+
+
+    <!-- end Footer Area
+========================================== -->
+    <!-- 
+    Essential Scripts
+    =====================================-->
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+
+    <!-- Bootstrap4 -->
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- Parallax -->
+    <script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
+    <!-- lightbox -->
+    <script src="plugins/lightbox2/js/lightbox.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- filter -->
+    <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+    <!-- Smooth Scroll js -->
+    <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+
+    <!-- Custom js -->
+    <script src="js/script.js"></script>
+    <script src="js/contract-search-filter.js"></script>
+    <script src="js/add-select-service.js"></script>
+
+</body>
+
+</html>

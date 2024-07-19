@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>View Service</title>
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="One page parallax responsive HTML Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+
+  <!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo-business-network.png" />
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- CSS
+  ================================================== -->
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- Lightbox.min css -->
+  <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body id="body">
+
+  <!--
+  Start Preloader
+  ==================================== -->
+  <div id="preloader">
+    <div class='preloader'>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!--
+  End Preloader
+  ==================================== -->
+
+  <!--
+Fixed Navigation
+==================================== -->
+  <header class="navigation fixed-top">
+    <div class="container">
+      <!-- main nav -->
+      <nav class="navbar navbar-expand-lg navbar-light px-0" style="height: 80px; top: 25px;">
+        <!-- logo -->
+        <a class="navbar-brand logo" th:href="@{index}">
+          <!-- <img loading="lazy" class="logo-default" src="images/logo.png" alt="logo" /> -->
+          <img loading="lazy" class="logo-white" src="images/logo-business-network.png" alt="logo"
+            style="height: 60px; width: 75px; margin-top: 20px;" />
+          <p style="font-weight: bold;" class="dropdown-item" aria-labelledby="dropdown0501">SE1863</p>
+        </a>
+        <!-- /logo -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+					<ul class="navbar-nav ml-auto text-center">
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Users <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" th:href="@{manage-client}">Clients</a></li>
+								<li><a class="dropdown-item" th:href="@{manage-technician}">Technician</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown02" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								SERVICES <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
+								<li>
+									<a class="dropdown-item" th:href="@{view-service}">VIEW</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{create-service}">CREATE</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{view-service}">UPDATE</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{disable-service}">DISABLE</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown02" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								CONTRACTS <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
+								<li>
+									<a class="dropdown-item" th:href="@{view-contract}">VIEW</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{create-contract}">CREATE</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{view-contract}">UPDATE</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" th:href="@{manage-payment}">Payments</a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" th:href=@{view-request}>Requests</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown02" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${session.user}">
+								 <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
+								<li><a class="dropdown-item" th:href="@{setting}">Setting</a></li>
+								<li><a class="dropdown-item" href="/logout">Log-out</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+      </nav>
+      <!-- /main nav -->
+    </div>
+  </header>
+  <!--
+End Fixed Navigation
+==================================== -->
+
+  <section class="single-page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Service Details</h2>
+          <ol class="breadcrumb header-bradcrumb justify-content-center">
+            <li class="breadcrumb-item"><a th:href="@{index}" class="text-white">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a th:href="@{view-service}">Service Details</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- service table -->
+
+  <section class="intro">
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+      <div class="mask d-flex align-items-center h-100">
+        <div id="con-table" class="container" th:style="${#request.getParameter('searchedService')} == 'null' ? 'max-width: 1200px;' : 'max-width: 1350px; margin-left: 30px'">
+          <div class="row justify-content-center" style="width: 100%;">
+            <!-- SEARCH BAR -->
+            <div class="col-md-6" style="margin-bottom: 40px;">
+              <div class="form">
+                <i class="fa fa-search"></i>
+                <form th:action="@{/admin/view-service}" method="get" name="searchInput">
+                  <input type="text" class="form-control form-input" name="searchInput"
+                    placeholder="Search anything...">
+                  <input type="submit" style="display: none;"></input>
+                </form>
+                <span class="left-pan"><i class="fa fa-microphone"></i></span>
+              </div>
+            </div>
+            <!-- END SEARCH BAR -->
+
+            <div id="chartContainer" style="height: 370px; width: 100%; margin-bottom: 30px;" th:unless="${#request.getParameter('searchedService') != null}"></div>
+            <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+            <div class="col-12" style="width: 90% !important; padding: 0;">
+              <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+                <div class="card-body" style="padding: 0;">
+                  <div class="table-responsive">
+                    <table id="fucking-table" class="table table-striped mb-0" style="height: 190px;">
+                      <thead>
+                        <tr style="font-size: 17px">
+                          <th scope="col">
+                          </th>
+                          <th scope="col" class="text-center">#SERVICE</th>
+                          <th scope="col" class="text-center">#NAME</th>
+                          <th class="text-center" th:unless="${numberOfRegister == null}"
+                            scope="col" style="padding-left: 0;">NUMBER OF REGISTER</th>
+                          <th th:unless="${#request.getParameter('searchedService') == null}" class="text-center"
+                            scope="col" style="padding-left: 0;">OPTIONS</th>
+                          <th scope="col" class="text-center">DESCRIPTION</th>
+                          <th scope="col" style="padding-left: 8px;" class="text-center"></th>
+                        </tr>
+                      </thead>
+
+                      <tbody style="font-size: 17px;">
+                        <!-- DEFAULT VIEW ALL SERVICES TABLE -->
+                        <tr th:if="${#request.getParameter('searchedService') == null}" class="text-center"
+                          th:each="service : ${serviceList}" style="height: 60px;">
+                          <th scope="row" style="width: 30px; padding-top: 13px; padding-right: 0;">
+                            <button th:if="${service.status == 0}" type="button" class="btn btn-outline-danger"
+                            style="padding: 5px 10px 5px 10px !important;font-weight: bold;">Disabled</button>
+                          </th>
+                          <!-- SEARCH -->
+                          <td>
+                            <form th:action="@{/admin/search-service}" method="post" name="searchInput">
+                              <input type="hidden" class="form-control form-input" name="searchInput"
+                                th:value="${service.serviceId}">
+                              <input class="btn btn-light cl-id-btn" type="submit" th:value="${service.serviceId}"
+                                style="font-weight: bold;"></input>
+                            </form>
+                          </td>
+
+                          <td class="service-name" th:text="${service.serviceName}">
+                          </td>
+
+                          <td style="display: none;" class="service-register-number" th:text="${serviceAndNumberOfRegister[__${service.serviceId}__]}"></td>
+
+                          <td th:text="${service.description}">
+                          </td>
+
+                          <!-- FORM UPDATE -->
+                          <td style="height: 100%; padding-left: 25px; padding-top: 11px;" th:if="${service.status != 0}">
+                            <form th:action="@{/admin/search-service}" method="post" name="searchInput">
+                              <input type="hidden" class="form-control form-input" name="searchInput"
+                                th:value="${service.serviceId}">
+                              <button type="submit" class="btn btn-danger btn-block"
+                                style="padding: 4px 3px 4px 3px !important;">
+                                <span>UPDATE</span></button>
+                              </button>
+                            </form>
+                          </td>
+                        </tr>
+
+                        <!--END DEFAULT VIEW ALL CONTRACT TABLE -->
+
+                        <!-- SEARCHED SERVICE VIEW -->
+                        <tr th:unless="${#request.getParameter('searchedService') == null}" class="text-center"
+                          th:each="service : ${serviceList}" style="height: 100px;"
+                          th:if="${#request.getParameter('searchedService')} == __${service.serviceId}__">
+                          <th scope="row" style="width: 30px; padding-top: 13px; padding-right: 0;">
+                          </th>
+                          <!-- SEARCH -->
+                          <td>
+                            <form th:action="@{/admin/search-service}" method="post" name="searchInput">
+                              <input type="hidden" class="form-control form-input" name="searchInput"
+                                th:value="${service.serviceId}">
+                              <input class="btn btn-light cl-id-btn" type="submit" th:value="${service.serviceId}"
+                                style="font-weight: bold; font-size: 18px;"></input>
+                            </form>
+                          </td>
+                          <!-- UPDATE SERVICE FORM -->
+                          <form th:action="@{/admin/update-service}" method="post">
+                            <td>
+                              <input th:readonly="${service.status == 1} ? 'false' : 'readonly'" type="text" name="serviceName" th:value="${service.serviceName}"
+                                class="text-center"
+                                style="max-width: 100%; height: 35px; background-color: rgba(0, 0, 0, 0); border-radius: 5px; border-color: rgba(73, 73, 73, 0.5);">
+                            </td>
+
+                            <td th:text="${numberOfRegister}" style="font-weight: bold; font-size: 18px;"></td>
+
+                            <!-- OPTIONS DROPDOWN LIST -->
+                            <td style="display: flex; height: 100%;">
+                              <div th:each="option : ${searchedServiceOptions}" class="nav-item dropdown show" th:if="${option.status != -1}">
+                                <span class="dropdown" style="padding: 0 5px 0 5px;">
+                                  <button class="btn btn-secondary  dropdown-toggle" type="button" id="navbarDropdown"
+                                    data-toggle="dropdown" aria-haspopup="true" data-mdb-dropdown-init
+                                    data-mdb-ripple-init aria-expanded="false" th:text="${option.optionId}">
+                                  </button>
+                                  <ul id="fucking-dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdown"
+                                    style="display: block; background-color: rgba(0, 0, 0, 0); border: 0; margin-top: 10px;">
+                                    <li class="dropdown-item text-center"
+                                      style="display: block; border-radius: 5px;  padding: 10px 5px 20px 5px; width: 85px; height: 40px;">
+                                      <!-- ATTENTION TO PREPROCESSING SYNTAX __${option.optionId+'status'}__ -->
+                                      <input type="radio" value="disable" th:name="'option-status-'+${option.optionId}"
+                                        th:id="${option.optionId}" th:checked="${option.status == 0}">
+                                      <label th:for="${option.optionId}"
+                                        style="margin: 0;  padding-left: 3px; padding-bottom: 5px;">Disable</label>
+                                    </li>
+                                    <li class="dropdown-item text-center"
+                                      style="display: block; border-radius: 5px; padding: 10px 5px 20px 5px; width: 85px; height: 40px;">
+                                      <input type="radio" value="enable" th:name="'option-status-'+${option.optionId}"
+                                        th:id="${option.optionId}+'e'" th:checked="${option.status == 1}">
+                                      <label th:for="${option.optionId}+'e'"
+                                        style="margin: 0; padding-left: 3px; padding-bottom: 5px;">Enable </label>
+                                    </li>
+                                  </ul>
+                                </span>
+                                <!-- case contract is fully paid  -->
+                                <!-- <strong th:if="${!#lists.contains(notPaidContract,searchedContract.contractId)}" th:text="${option.service.serviceId}"></strong> -->
+                              </div>
+                            </td>
+
+                            <td>
+                              <textarea 
+                                th:readonly="${service.status == 1} ? 'false' : 'readonly'"
+                                name="description" th:text="${service.description}"
+                                style="background-color: rgba(0, 0, 0, 0); border-radius: 5px; border-color: rgba(73, 73, 73, 0.5); text-align: left; padding-left: 40px;"
+                                cols="30" rows="5"></textarea>
+                            </td>
+
+                            <!-- FORM UPDATE -->
+                            <td style="height: 100%; padding-left: 25px; padding-top: 11px;">
+                              <input type="hidden" class="form-control form-input" name="serviceID"
+                                th:value="${service.serviceId}">
+                              <button th:unless="${service.status == 0}" type="submit" class="btn btn-danger btn-block"
+                                style="padding: 4px 3px 4px 3px !important;">
+                                <span>EDIT</span></button>
+                              </button>
+                            </td>
+                          </form>
+                        </tr>
+                        <!-- END SEARCHED SERVICE  -->
+
+                        <!-- HANDLE SEARCH CLIENT NOT FOUND -->
+                      </tbody>
+                      <!-- Alert component to display notification -->
+                      <div th:if="${updateStatus == 'failed'}" class="alert alert-danger">
+                        <strong>Update service <strong style="font-size: 18px;">FAILED</strong>:</strong> 
+                        <span th:text="${message}"></span>
+                      </div>
+                      <div th:if="${updateStatus == 'empty'}" class="alert alert-warning">
+                        <strong>Update service <strong style="font-size: 18px;">FAILED</strong>:</strong> due to the
+                        absence of new data.
+                      </div>
+                      <div th:if="${updateStatus == 'success'}" class="alert alert-success">
+                        <strong>Updated service <strong th:text="${updatedService}"></strong> successfully.</strong>
+                      </div>
+                      <div th:if="${createStatus == 'success'}" class="alert alert-success">
+                        <strong th:text="${message}"></strong>
+                      </div>
+                      <!--END Alert component to display notification -->
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END SEARCHED SERVICE TABLE -->
+
+
+          <hr>
+
+
+          <!-- VIEW ALL SEARCHED SERVICE OPTION TABLE -->
+          <div class="row justify-content-center" style="width: 100%;"
+          th:unless="${#request.getParameter('searchedService') == null}">
+          <h2 class="text-center" style="padding: 20px 0 20px 0;">Option details</h2>
+            <div class="col-12" style="width: 90% !important; padding: 0;">
+              <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+                <div class="card-body" style="padding: 0;">
+                  <div class="table-responsive">
+                    <table id="fucking-table" class="table table-striped mb-0" style="height: 190px;">
+                      <thead>
+                        <tr style="font-size: 17px">
+                          <th scope="col">
+                            <!-- <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                          </div> -->
+                          </th>
+                          <th scope="col" class="text-center">#OPTION</th>
+                          <th scope="col" class="text-center">#SERVICE</th>
+                          <th class="text-center" scope="col" style="padding-left: 0;">NAME</th>
+                          <th class="text-center" scope="col" style="padding-left: 0;">DURATION</th>
+                          <th class="text-center" scope="col" style="padding-left: 0;">PRICE (VND)</th>
+                          <th scope="col" class="text-center">STATUS</th>
+                          <th scope="col" style="padding-left: 8px;" class="text-center"></th>
+                        </tr>
+                      </thead>
+
+                      <tbody style="font-size: 17px;">
+                        <!-- DEFAULT VIEW ALL SERVICES TABLE -->
+                        <!-- UPDATE OPTION PRICE FORM -->
+                        <form th:action="@{/admin/update-option}" method="post" name="searchInput">
+                          <tr class="text-center" th:each="option : ${searchedServiceOptions}" style="height: 60px;" th:if="${option.status != -1}">
+                            <th scope="row" style="width: 30px; padding-top: 13px; padding-right: 0;">
+                            </th>
+                            <!-- SEARCH -->
+                            <td style="font-weight: bold;" th:text="${option.optionId}"></td>
+
+                            <td>
+                                <input type="hidden" class="form-control form-input" name="searchInput"
+                                  th:value="${#request.getParameter('searchedService')}">
+                                <input class="btn btn-light cl-id-btn" type="submit"
+                                  th:value="${#request.getParameter('searchedService')}"
+                                  style="font-weight: bold;"></input>
+                            </td>
+
+
+                            <td th:each="service : ${serviceList}"
+                              th:if="${#request.getParameter('searchedService')} == __${service.serviceId}__">
+                              <span th:text="${service.serviceName}"></span>
+                            </td>
+
+                            <td th:text="${option.duration}"></td>
+                            <td>
+                              <input th:readonly="${option.service.status} == 1 ? 'false' : 'readonly'" type="number" th:name="__${option.optionId}__+'-price'" th:value="${option.price}" class="text-center"
+                                style="background-color: transparent;">
+                            </td>
+
+                            <td th:unless="${option.status == -1}">
+                              <button type="button" th:if="${option.status == 0}" class="btn btn-danger"
+                                th:text="${'Disabled'}"></button>
+                              <button type="button" th:if="${option.status == 1}" class="btn btn-success"
+                                th:text="${'Available'}"></button>
+                            </td>
+                            <td th:if="${option.status == -1}" >
+                              <button class="btn btn-warning"
+                                th:text="${'Replaced'}"
+                                style="color: white;">
+                              </button>
+                            </td>
+
+                            <!-- FORM UPDATE -->
+                            <td style="padding-left: 60px;">
+                              <input type="hidden" class="form-control form-input" name="searchInput"
+                                th:value="${option.optionId}">
+                              <button th:unless="${option.service.status == 0}" type="submit" class="btn btn-outline-danger btn-block"
+                                style="padding: 4px 3px 4px 3px !important;">
+                                <span>UPDATE</span></button>
+                              </button>
+                            </td>
+                          </tr>
+                        </form>
+
+                        <!--END DEFAULT VIEW ALL CONTRACT TABLE -->
+
+
+                        <!-- HANDLE SEARCH CLIENT NOT FOUND -->
+                      </tbody>
+                      <!-- Alert component to display notification -->
+                      <div th:if="${updateStatus == 'failed'}" class="alert alert-danger">
+                        <strong>Update contract <strong style="font-size: 18px;">FAILED</strong>:</strong> new end date
+                        must be present or in the future.
+                      </div>
+                      <div th:if="${updateStatus == 'empty'}" class="alert alert-warning">
+                        <strong>Update contract <strong style="font-size: 18px;">FAILED</strong>:</strong> due to the
+                        absence of new data.
+                      </div>
+                      <div th:if="${updateStatus == 'success'}" class="alert alert-success">
+                        <strong>Updated contract <strong th:text="${updatedContract}"></strong> successfully.</strong>
+                      </div>
+                      <!--END Alert component to display notification -->
+                    </table>
+
+                    <!-- VIEW ALL SEARCHED SERVICE OPTION TABLE -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- END CLIENT TABLE  -->
+
+  <footer id="footer" class="bg-one">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row justify-content-around">
+          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+            <h3>about</h3>
+            <p>Integer posuere erat a ante venenati dapibus posuere velit aliquet. Fusce dapibus, tellus cursus commodo,
+              tortor mauris sed posuere.</p>
+          </div>
+          <!-- End of .col-sm-3 -->
+
+          <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <ul>
+              <li>
+                <h3>Our Services</h3>
+              </li>
+              <li><a th:href="@{service}">Ui/Ux Design</a></li>
+              <li><a th:href="@{service}">Graphic Design</a></li>
+              <li><a th:href="@{service}">Web Design</a></li>
+              <li><a th:href="@{service}">Web Development</a></li>
+            </ul>
+          </div>
+          <!-- End of .col-sm-3 -->
+
+          <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+            <ul>
+              <li>
+                <h3>Quick Links</h3>
+              </li>
+              <li><a th:href="@{about}">About</a></li>
+              <li><a th:href="@{service}">Services</a></li>
+              <li><a th:href="@{blog}">Blogs</a></li>
+              <li><a th:href="@{error}">404</a></li>
+            </ul>
+          </div>
+          <!-- End of .col-sm-3 -->
+
+          <div class="col-lg-3 col-md-6">
+            <ul>
+              <li>
+                <h3>Connect with us Socially</h3>
+              </li>
+              <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
+              <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
+              <li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA">Youtube</a></li>
+              <li><a href="https://www.github.com/themefisher/">Github</a></li>
+            </ul>
+          </div>
+          <!-- End of .col-sm-3 -->
+
+        </div>
+      </div> <!-- end container -->
+    </div>
+    <div class="footer-bottom">
+      <h5>&copy; Copyright 2020. All rights reserved.</h5>
+      <h6>Design and Developed by <a href="https://themefisher.com/">Themefisher</a></h6>
+    </div>
+  </footer> <!-- end footer -->
+
+
+  <!-- end Footer Area
+========================================== -->
+  <!-- 
+    Essential Scripts
+    =====================================-->
+  <!-- Main jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+
+  <!-- Bootstrap4 -->
+  <script src="plugins/bootstrap/bootstrap.min.js"></script>
+  <!-- Parallax -->
+  <script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
+  <!-- lightbox -->
+  <script src="plugins/lightbox2/js/lightbox.min.js"></script>
+  <!-- Owl Carousel -->
+  <script src="plugins/slick/slick.min.js"></script>
+  <!-- filter -->
+  <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+  <!-- Smooth Scroll js -->
+  <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+  <script src="plugins/google-map/gmap.js"></script>
+
+  <!-- Custom js -->
+  <script src="js/script.js"></script>
+  <script src="js/piechart.js"></script>
+
+
+</body>
+
+</html>

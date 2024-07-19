@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <title>Create Contract</title>
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="One page parallax responsive HTML Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="author" content="Themefisher">
+    <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+
+    <!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo-business-network.png" />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CSS
+  ================================================== -->
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <!-- Lightbox.min css -->
+    <link rel="stylesheet" href="plugins/lightbox2/css/lightbox.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/alert-style.css">
+
+
+</head>
+
+<body id="body">
+
+    <!--
+  Start Preloader
+  ==================================== -->
+    <div id="preloader">
+        <div class='preloader'>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!--
+  End Preloader
+  ==================================== -->
+
+    <!--
+Fixed Navigation
+==================================== -->
+    <header class="navigation fixed-top">
+        <div class="container">
+            <!-- main nav -->
+            <nav class="navbar navbar-expand-lg navbar-light px-0" style="height: 80px; top: 25px;">
+                <!-- logo -->
+                <a class="navbar-brand logo" th:href="@{index}">
+                    <!-- <img loading="lazy" class="logo-default" src="images/logo.png" alt="logo" /> -->
+                    <img loading="lazy" class="logo-white" src="images/logo-business-network.png" alt="logo"
+                        style="height: 60px; width: 75px; margin-top: 20px;" />
+                    <p style="font-weight: bold;" class="dropdown-item" aria-labelledby="dropdown0501">SE1863</p>
+                </a>
+                <!-- /logo -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navigation">
+					<ul class="navbar-nav ml-auto text-center">
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Users <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" th:href="@{manage-client}">Clients</a></li>
+								<li><a class="dropdown-item" th:href="@{manage-technician}">Technician</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown02" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								SERVICES <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
+								<li>
+									<a class="dropdown-item" th:href="@{view-service}">VIEW</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{create-service}">CREATE</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{view-service}">UPDATE</a>
+								</li>
+                                <li>
+									<a class="dropdown-item" th:href="@{disable-service}">DISABLE</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown02" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								CONTRACTS <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
+								<li>
+									<a class="dropdown-item" th:href="@{view-contract}">VIEW</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{create-contract}">CREATE</a>
+								</li>
+								<li>
+									<a class="dropdown-item" th:href="@{view-contract}">UPDATE</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" th:href="@{manage-payment}">Payments</a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" th:href=@{view-request}>Requests</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown02" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${session.user}">
+								 <i class="tf-ion-chevron-down"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
+								<li><a class="dropdown-item" th:href="@{setting}">Setting</a></li>
+								<li><a class="dropdown-item" href="/logout">Log-out</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+            </nav>
+            <!-- /main nav -->
+        </div>
+    </header>
+    <!--
+End Fixed Navigation
+==================================== -->
+
+    <section class="single-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Create Service</h2>
+                    <ol class="breadcrumb header-bradcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a th:href="@{index}" class="text-white">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a th:href="@{create-service}">Create
+                                Service</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SERVICE TABLE -->
+
+    <section class="intro">
+        <div class="bg-image h-100" style="background-color: #f5f7fa;">
+            <h2 class="text-center" style="padding-top: 40px;">Pick A Client To Create Contract</h2>
+            <div class="mask d-flex align-items-center h-100">
+                <div id="con-table" class="container" style="max-width: 1200px; padding-top: 20px;">
+                    <div class="row justify-content-center" style="width: 100%;">
+                        <!-- SEARCH BAR -->
+                        <!-- <div class="col-md-6" style="margin-bottom: 40px;">
+                            <div class="form">
+                                <i class="fa fa-search"></i>
+                                <form th:action="@{/admin/view-service}" method="get" name="searchInput">
+                                    <input type="text" class="form-control form-input" name="searchInput"
+                                        placeholder="Search anything...">
+                                    <input type="submit" style="display: none;"></input>
+                                </form>
+                                <span class="left-pan"><i class="fa fa-microphone"></i></span>
+                            </div>
+                        </div> -->
+                        <!-- END SEARCH BAR -->
+                        <div class="col-12" style="width: 90% !important; padding: 0;">
+                            <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+                                <div class="card-body" style="padding: 0;">
+                                    <div class="table-responsive">
+                                        <table id="fucking-table" class="table table-striped mb-0"
+                                            style="height: 170px; padding-bottom: 20px;">
+                                            <thead>
+                                                <tr style="font-size: 17px">
+                                                    <th scope="col" class="text-center">#CLIENT</th>
+                                                    <th scope="col" class="text-center">#SERVICE</th>
+                                                    <th scope="col" class="text-center">#OPTION</th>
+                                                    <th scope="col" class="text-center">START DATE</th>
+                                                    <!-- <th scope="col" class="text-center">END DATE</th> -->
+                                                    <th scope="col" style="padding-left: 8px;" class="text-center">
+                                                        ACTION</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody style="font-size: 17px;">
+                                                <input type="hidden" id="available-service-number" th:value="${availableServiceNum}">
+                                                <tr>
+                                                    <form id="fucking-form" th:action="@{/admin/review-contract}" method="post">
+                                                        <td class="center-cell">
+                                                            <input type="text" class="form-control form-input"
+                                                                name="searchClient"
+                                                                placeholder="Enter ID or phone number..."
+                                                                style="padding-left: 0; padding-right: 20px;"
+                                                                required
+                                                                th:value="${searchedClient != null ? searchedClient : ''}">
+                                                        </td>
+                                                        <td class="center-cell">
+                                                            <div id="service-container">
+                                                                <select class="form-control"
+                                                                    aria-label="Default select example" name="serviceId_0"
+                                                                    id="service">
+                                                                    <option th:each="service : ${serviceList}" th:if="${service.status == 1}"
+                                                                        th:value="${service.serviceId}"
+                                                                        th:text="${service.serviceName}"></option>
+                                                                </select>
+                                                            </div>
+                                                            <button class="form-control" type="button"
+                                                            onclick="addServiceSelect()">+</button>
+                                                        </td>
+                                                        <td class="center-cell">
+                                                            <select class="form-control"
+                                                                aria-label="Default select example" name="duration"
+                                                                id="option"
+                                                                >
+                                                                <option th:selected="${choseDuration != null AND choseDuration == 6}" th:value="${6}" th:text="${'6 months'}">
+                                                                </option>
+                                                                <option th:selected="${choseDuration != null AND choseDuration == 12}" th:value="${12}" th:text="${'12 months'}">
+                                                                </option>
+                                                                <option th:selected="${choseDuration != null AND choseDuration == 24}" th:value="${24}" th:text="${'24 months'}">
+                                                                </option>
+                                                            </select>
+                                                        </td>
+                                                        <td class="center-cell">
+                                                            <input class="form-control" type="date"
+                                                                name="contractStartDate"
+                                                                style="width: 150px; margin-left: 50px;" 
+                                                                required
+                                                                th:value="${choseStartDate != null ? #dates.format(choseStartDate, 'yyyy-MM-dd') : ''}"
+                                                                />
+                                                        </td>
+                                                        <!-- <td>
+                                                            <input class="form-control" type="date"
+                                                                name="contractEndDate"
+                                                                style="width: 150px;margin-left: 15px;" />
+                                                        </td> -->
+                                                        <td class="center-cell">
+                                                            <button type="submit" class="btn btn-danger btn-block"
+                                                                style="width: 150px; margin-left: 25px; font-weight: bold;">
+                                                                Preview Contract</button>
+                                                            </button>
+                                                        </td>
+                                                    </form>
+                                                </tr>
+
+                                                <!-- HANDLE SEARCH CLIENT NOT FOUND -->
+                                            </tbody>
+                                            <!-- Alert component to display notification -->
+                                            <div th:if="${status == 'failed'}" class="alert alert-danger">
+                                                <strong>Create service
+                                                    <strong style="font-size: 18px;">FAILED</strong>:
+                                                </strong>
+                                                <span th:text="${message}"></span>
+                                            </div>
+                                            <div th:if="${status == 'empty'}" class="alert alert-warning">
+                                                <strong>Create contract <strong
+                                                        style="font-size: 18px;">FAILED</strong>:</strong> due to the
+                                                absence of new data.
+                                            </div>
+                                            <div th:if="${status == 'success'}" class="alert alert-success">
+                                                <strong>Create contract <strong th:text="${updatedContract}"></strong>
+                                                    successfully.</strong>
+                                            </div>
+                                            <!--END Alert component to display notification -->
+                                        </table>
+                                        <hr>
+                                        <!-- CLIENT TABLE -->
+                                        <table class="table table-striped mb-0" id="client-table">
+                                            <thead>
+                                                <tr style="font-size: 17px">
+                                                    <th scope="col">
+                                                        <!-- <div class="form-check">
+                                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                </div> -->
+                                                    </th>
+                                                    <th scope="col" class="text-center">#CLIENT</th>
+                                                    <th scope="col" class="text-center">NAME</th>
+                                                    <th scope="col" class="text-center" style="padding-left: 0;">PHONE
+                                                        NUMBER</th>
+
+                                                    <th scope="col" class="text-center"
+                                                        th:if="${#request.getParameter('searchedClient') != null}">
+                                                        CONTRACT</th>
+                                                    <th scope="col" class="text-center">ADDRESS</th>
+                                                    <th scope="col" class="text-center" style="padding-left: 8px;">
+                                                        </th>
+                                                </tr>
+                                            </thead>
+                                            <!-- DISPAY TBODY WHEN IN DEFAULT PAGE OR FOUND RECORDS WHEN SEARCHING -->
+                                            <tbody style="font-size: 17px;"
+                                                th:if="${#request.getParameter('searchNotFound') == null}">
+                                                <!-- DEFAULT VIEW ALL CLIENTS TABLE -->
+                                                <tr class="text-center" th:each="client : ${clientList}"
+                                                    th:if="${#request.getParameter('searchedClient') == null and client.isBlocked == 0}"
+                                                    style="height: 60px;">
+                                                    <th scope="row" style="width: 110px">
+                                                        <div class="form-check" style="padding: 0; width: fit-content;"
+                                                            th:if="${#lists.contains(notPaidFor3MonthClients,client.clientId)}">
+                                                            <button type="button" class="btn btn-warning"
+                                                                style="padding: 5px 10px 5px 10px !important;font-weight: bold;">Not
+                                                                paid for over 3
+                                                                months!</button>
+                                                        </div>
+                                                    </th>
+                                                    <!-- SEARCH  BY HITTING CLIENT ID -->
+                                                    <td>
+                                                        <form th:action="@{/admin/search-client}" method="post"
+                                                            name="searchInput">
+                                                            <input type="hidden" class="form-control form-input"
+                                                                name="searchInput" th:value="${client.phoneNumber}">
+                                                            <input class="btn btn-light cl-id-btn client-id" type="submit"
+                                                                th:value="${client.clientId}"
+                                                                style="font-weight: bold;"></input>
+                                                        </form>
+                                                    </td>
+                                                    <form th:action="@{/admin/choose-option}" method="get">
+                                                        <td th:text="${client.firstName} + ' ' +${client.lastName}">
+                                                        </td>
+                                                        <td th:text="${client.phoneNumber}" class="phone-number"></td>
+
+                                                        <td>
+                                                            <span th:each="address : ${addressList}"
+                                                                th:if="${address.userAddressClients.contains(client)}">
+                                                                <span th:text="${address.addressLine}"></span>
+                                                            </span>
+                                                        </td>
+
+                                                        <td
+                                                            th:style="${client.isBlocked == 0} ? 'padding-left: 20px;height: 100%; max-width: 100px;' : 'padding-left: 20px;height: 100%; max-width: 100px;' ">
+                                                            <input type="hidden" name="clientID"
+                                                                ,th:value="${client.clientId}">
+                                                            <button type="button"
+                                                                th:if="${!#lists.contains(notPaidFor3MonthClients, client.clientId)}"
+                                                                class="btn btn-outline-danger btn-block choose-client-btn"
+                                                                style="padding: 5px 10px 5px 10px !important;"
+                                                                th:value="${client.clientId}">
+                                                                <span class="choose-client-btn"
+                                                                    th:value="${client.clientId}" th:text="${'Choose'}">
+                                                                </span></button>
+                                                            </button>
+                                                        </td>
+
+                                                    </form>
+                                                </tr>
+                                                <!-- LIST OF BLOCKED CLIENT AFTER-->
+                                                <tr th:each="client : ${clientList}" class="text-center"
+                                                    th:if="${#request.getParameter('searchedClient') == null and client.isBlocked == 1}"
+                                                    style="height: 60px;">
+                                                    <th scope="row" style="width: 40px; padding-right: 20px;">
+                                                        <div class="form-check"
+                                                            style="padding: 3px 0 0 10px ; max-width: 100px;">
+                                                            <button type="button" th:if="${client.isBlocked == 1}"
+                                                                class="btn btn-danger"
+                                                                style="padding: 5px 18px 5px 18px !important; font-weight: bold;">BLOCKED</button>
+                                                        </div>
+                                                    </th>
+                                                    <!-- SEARCH BY HITTING ID -->
+                                                    <td class="text-center">
+                                                        <form th:action="@{/admin/search-client}" method="post"
+                                                            name="searchInput">
+                                                            <input type="hidden" class="form-control form-input"
+                                                                name="searchInput" th:value="${client.phoneNumber}">
+                                                            <input class="btn btn-light cl-id-btn client-id" type="submit"
+                                                                th:value="${client.clientId}"
+                                                                style="font-weight: bold;"></input>
+                                                        </form>
+                                                    </td>
+                                                    <!-- END SEARCH  -->
+                                                    <form
+                                                        th:action="@{/admin/block-client(clientID=${client.clientId})}"
+                                                        method="post">
+                                                        <td class="text-center"
+                                                            th:text="${client.firstName} + ' ' +${client.lastName}">
+                                                        </td>
+                                                        <td class="text-center phone-number" th:text="${client.phoneNumber}"></td>
+                                                        <td>
+                                                            <span th:each="address : ${addressList}"
+                                                                th:if="${address.userAddressClients.contains(client)}">
+                                                                <span th:text="${address.addressLine}"></span>
+                                                            </span>
+                                                        </td>
+                                                        <td style="padding-left: 10px; height: 100%; max-width: 140px;">
+                                                            <button th:if="${client.isBlocked ==1}" type="submit"
+                                                                class="btn btn-outline-danger"><span
+                                                                    style="font-weight: bold; font-size: 16px;"
+                                                                    th:text="Unblock"></span></button>
+                                                            </button>
+                                                        </td>
+                                                    </form>
+                                                </tr>
+                                                <!-- END LIST OF BLOCKED CLIENTS -->
+                                                <!--END DEFAULT VIEW ALL CLIENTS TABLE -->
+
+                                                <!-- HANDLE SEARCH CLIENT NOT FOUND -->
+                                            </tbody>
+                                            <!-- Alert component to display notification -->
+                                            <div th:if="${#request.getParameter('searchNotFound') == true}"
+                                                class="alert alert-danger">
+                                                <strong>CLIENT NOT FOUND</strong> please check the phone number
+                                            </div>
+                                            <div th:if="${!#strings.isEmpty(unblockable)}" class="alert alert-danger">
+                                                <strong
+                                                    th:text="'Client '+ ${unblockable} + ' cannot be blocked. Reason: '"></strong>
+                                                <span>this client have not violated any policies.</span>
+                                            </div>
+                                            <div th:if="${!#strings.isEmpty(blocked)}" class="alert alert-success">
+                                                <strong
+                                                    th:text="'Client ' + ${blocked} + ' has been BLOCKED successfully.'"></strong>
+                                                <span></span>
+                                            </div>
+                                            <div th:if="${!#strings.isEmpty(unblocked)}" class="alert alert-success">
+                                                <strong
+                                                    th:text="'Client ' + ${unblocked} + ' has been UNBLOCKED successfully.'"></strong>
+                                                <span></span>
+                                            </div>
+                                            <!--END Alert component to display notification -->
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span id="options"></span>
+                    </div>
+                    <!-- END SEARCHED SERVICE TABLE -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- END CLIENT TABLE  -->
+
+    <footer id="footer" class="bg-one">
+        <div class="top-footer">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                        <h3>about</h3>
+                        <p>Integer posuere erat a ante venenati dapibus posuere velit aliquet. Fusce dapibus, tellus
+                            cursus commodo,
+                            tortor mauris sed posuere.</p>
+                    </div>
+                    <!-- End of .col-sm-3 -->
+
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                        <ul>
+                            <li>
+                                <h3>Our Services</h3>
+                            </li>
+                            <li><a th:href="@{service}">Ui/Ux Design</a></li>
+                            <li><a th:href="@{service}">Graphic Design</a></li>
+                            <li><a th:href="@{service}">Web Design</a></li>
+                            <li><a th:href="@{service}">Web Development</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of .col-sm-3 -->
+
+                    <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                        <ul>
+                            <li>
+                                <h3>Quick Links</h3>
+                            </li>
+                            <li><a th:href="@{about}">About</a></li>
+                            <li><a th:href="@{service}">Services</a></li>
+                            <li><a th:href="@{blog}">Blogs</a></li>
+                            <li><a th:href="@{error}">404</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of .col-sm-3 -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <ul>
+                            <li>
+                                <h3>Connect with us Socially</h3>
+                            </li>
+                            <li><a href="https://www.facebook.com/themefisher/">Facebook</a></li>
+                            <li><a href="https://www.twitter.com/themefisher/">Twitter</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA">Youtube</a></li>
+                            <li><a href="https://www.github.com/themefisher/">Github</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of .col-sm-3 -->
+
+                </div>
+            </div> <!-- end container -->
+        </div>
+        <div class="footer-bottom">
+            <h5>&copy; Copyright 2020. All rights reserved.</h5>
+            <h6>Design and Developed by <a href="https://themefisher.com/">Themefisher</a></h6>
+        </div>
+    </footer> <!-- end footer -->
+
+
+    <!-- end Footer Area
+========================================== -->
+    <!-- 
+    Essential Scripts
+    =====================================-->
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+
+    <!-- Bootstrap4 -->
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- Parallax -->
+    <script src="plugins/parallax/jquery.parallax-1.1.3.js"></script>
+    <!-- lightbox -->
+    <script src="plugins/lightbox2/js/lightbox.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- filter -->
+    <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+    <!-- Smooth Scroll js -->
+    <script src="plugins/smooth-scroll/smooth-scroll.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+    <script src="plugins/google-map/gmap.js"></script>
+
+    <!-- Custom js -->
+    <script src="js/script.js"></script>
+    <script src="js/contract-search-filter.js"></script>
+    <script src="js/custom-alert.js"></script>
+    <script src="js/add-select-service.js"></script>
+
+</body>
+
+</html>
